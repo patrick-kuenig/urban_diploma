@@ -5,29 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63f26ffc-5afe-46e1-8f67-652056080ef4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Urban_Diploma.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CRM_Django_ORM/crm/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CRM_Django_ORM/crm/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CRM_Django_ORM/crm/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CRM_Django_ORM/crm/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CRM_Django_ORM/crm/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CRM_Django_ORM/crm/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CRM_Django_ORM/crm/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CRM_Django_ORM/crm_django/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CRM_Django_ORM/crm_django/asgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CRM_Django_ORM/crm_django/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CRM_Django_ORM/crm_django/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CRM_Django_ORM/crm_django/wsgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CRM_Django_ORM/manage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CRM_Django_ORM/templates/crm.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CRM_Django_ORM/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CRM_Django_ORM/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SQLAlchemy/crm/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SQLAlchemy/crm/backend/db.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SQLAlchemy/crm/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SQLAlchemy/crm/models/category.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SQLAlchemy/crm/models/customer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SQLAlchemy/crm/models/task.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SQLAlchemy/crm/models/user.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SQLAlchemy/crm/routers/categories.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SQLAlchemy/crm/routers/customers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SQLAlchemy/crm/routers/tasks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SQLAlchemy/crm/routers/users.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SQLAlchemy/crm/schemas.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TortoiseORM/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TortoiseORM/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TortoiseORM/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TortoiseORM/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Urban_Diploma.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Urban_Diploma.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRM_Django_ORM/crm/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/CRM_Django_ORM/crm/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,14 +34,26 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "patrick-kuenig"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/patrick-kuenig/urban_diploma",
+    "accountId": "78f434d5-d4f8-44f8-8916-612ede1eb2ee"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -54,18 +63,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.main.executor": "Run",
+    "Python.models.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/patrick/PycharmProjects/urban_diploma/TortoiseORM",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/TortoiseORM" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-0509580d9d50-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.14494.241" />
+        <option value="bundled-python-sdk-337b0a7a993a-31b6be0877a2-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.19416.19" />
       </set>
     </attachedChunks>
   </component>

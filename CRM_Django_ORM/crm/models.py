@@ -19,7 +19,7 @@ class Customer(models.Model):
     address = models.CharField(max_length=50)
     comments = models.TextField()
 
-    def __name__(self):
+    def __str__(self):
         return self.last_name
 
 
@@ -27,9 +27,9 @@ class Task(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField()
     creation_date = models.DateTimeField(db_default=Now())
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, on_delete=models.PROTECT)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, null=True)
+    category = models.ForeignKey(Category, on_delete=models.PROTECT, null=True)
 
-    def __name__(self):
+    def __str__(self):
         return self.name
