@@ -8,7 +8,7 @@ from fastapi import Form
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from typing import Annotated
-from .routers import categories
+from .routers import categories, customers, tasks, users
 
 app = FastAPI()
 templates = Jinja2Templates(directory='TortoiseORM.templates')
@@ -16,6 +16,9 @@ templates = Jinja2Templates(directory='TortoiseORM.templates')
 
 @app.get('/')
 async def welcome() -> dict:
-    return {'message': 'Hello World'}
+    return {'message': 'Hello CRM'}
 
 app.include_router(categories.router)
+app.include_router(customers.router)
+app.include_router(tasks.router)
+app.include_router(users.router)

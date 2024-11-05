@@ -2,15 +2,16 @@ from pydantic import BaseModel
 
 
 class RegisterUser(BaseModel):
-    username = str
-    password = str
-    first_name = str
-    last_name = str
+    username: str
+    password: str
+    first_name: str
+    last_name: str
+    is_active: bool
 
 
 class CreateCategory(BaseModel):
     name: str
-    description = str
+    description: str
 
 
 class CreateCustomer(BaseModel):
@@ -21,12 +22,9 @@ class CreateCustomer(BaseModel):
     phone_number: str
     address: str
     comments: str
-    referred_by: int | None
 
-class Task(BaseModel):
+
+class CreateTask(BaseModel):
     name: str
     description: str
     creation_date: str
-    user: int | None
-    customer: int | None
-
