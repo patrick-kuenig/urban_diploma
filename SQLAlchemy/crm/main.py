@@ -8,7 +8,7 @@ from fastapi import Form
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from typing import Annotated
-from .routers import categories, customers, tasks, users
+from routers import categories, customers, tasks, users
 
 app = FastAPI()
 templates = Jinja2Templates(directory='TortoiseORM.templates')
