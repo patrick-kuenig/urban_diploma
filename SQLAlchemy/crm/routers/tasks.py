@@ -1,12 +1,12 @@
 from fastapi import APIRouter, Depends, status, HTTPException
 from sqlalchemy.orm import Session
-from SQLAlchemy.crm.backend.db_depends import get_db
+from backend.db_depends import get_db
 from typing import Annotated
-from SQLAlchemy.crm.backend.db import *
+from backend.db import *
 from sqlalchemy import insert, select, update, delete
-from SQLAlchemy.crm.schemas import CreateTask
+from schemas import CreateTask
 
-router = APIRouter(prefix='tasks', tags=['task'])
+router = APIRouter(prefix='/tasks', tags=['task'])
 
 
 @router.get("/all_tasks")

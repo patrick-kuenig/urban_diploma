@@ -6,12 +6,12 @@ from fastapi import Request
 from fastapi import Path
 from fastapi import Form
 from fastapi.responses import HTMLResponse
-from fastapi.templating import Jinja2Templates
+# from fastapi.templating import Jinja2Templates
 from typing import Annotated
 from routers import categories, customers, tasks, users
 
 app = FastAPI()
-templates = Jinja2Templates(directory='TortoiseORM.templates')
+# templates = Jinja2Templates(directory='TortoiseORM.templates')
 
 
 @app.get('/')

@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, status, HTTPException
 from sqlalchemy.orm import Session
-from SQLAlchemy.crm.backend.db_depends import get_db
+from backend.db_depends import get_db
 from typing import Annotated
-from SQLAlchemy.crm.backend.db import *
+from backend.models import *
 from sqlalchemy import insert, select, update, delete
-from SQLAlchemy.crm.schemas import RegisterUser
+from schemas import RegisterUser
 
 router = APIRouter(prefix='/users', tags=['user'])
 
