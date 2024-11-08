@@ -19,7 +19,7 @@ if config.config_file_name is not None:
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
 from backend.db import Base
-from backend.models import *
+from backend.models import User, Category, Customer, Task
 target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,
@@ -46,6 +46,7 @@ def run_migrations_offline() -> None:
         target_metadata=target_metadata,
         literal_binds=True,
         dialect_opts={"paramstyle": "named"},
+        compare_type=True
     )
 
     with context.begin_transaction():
