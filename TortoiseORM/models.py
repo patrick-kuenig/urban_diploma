@@ -6,7 +6,7 @@ from tortoise import fields
 
 class User(Model):
     id = fields.IntField(primary_key=True)
-    username = fields.CharField(max_length=30)
+    username = fields.CharField(max_length=30, unique=True)
     password = fields.CharField(max_length=50)
     first_name = fields.CharField(max_length=30)
     last_name = fields.CharField(max_length=30)
@@ -24,7 +24,7 @@ class Customer(Model):
     phone_number = fields.CharField(max_length=30)
     address = fields.CharField(max_length=50)
     comments = fields.TextField()
-    referred_by = fields.ForeignKeyField('models.User', related_name='customers')
+    # referred_by = fields.ForeignKeyField('models.User', related_name='customers')
 
 
 class Task(Model):
@@ -32,7 +32,7 @@ class Task(Model):
     name = fields.CharField(max_length=50)
     description = fields.TextField()
     creation_date = fields.DatetimeField(auto_now_add=True)
-    user = fields.ForeignKeyField('models.User', related_name='tasks')
+    # user = fields.ForeignKeyField('models.User', related_name='tasks')
 
 
 class Category(Model):
