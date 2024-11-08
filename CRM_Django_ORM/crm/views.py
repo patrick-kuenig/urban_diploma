@@ -35,12 +35,12 @@ def user_login(request):
         form = LoginForm(request.POST)
         if form.is_valid():
             user = authenticate(
+                request,
                 username=form.cleaned_data['username'],
                 password=form.cleaned_data['password'],
             )
             if user is not None:
                 login(request, user)
-                message = f'Hello {user.username}! You have been logged in.'
                 return HttpResponseRedirect(reverse('crm'))
             else:
                 message = 'Login failed'

@@ -31,4 +31,4 @@ class RegisterUserForm(UserCreationForm):
 
 class LoginForm(forms.Form):
     username = forms.CharField(required=True, max_length=30, label='Enter username')
-    password = forms.CharField(required=True, label='Enter password', widget= forms.PasswordInput)
+    password = forms.CharField(required=True, label='Enter password', widget=forms.PasswordInput)
