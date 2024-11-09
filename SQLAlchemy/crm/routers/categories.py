@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, status, HTTPException
 from sqlalchemy.orm import Session
 from backend.db_depends import get_db
 from typing import Annotated
-from backend.db import *
+from backend.models import *
 from sqlalchemy import insert, select, update
 from schemas import CreateCategory
 from slugify import slugify
