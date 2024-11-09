@@ -23,7 +23,9 @@ async def create_customer(db: Annotated[Session, Depends(get_db)], customer: Cre
                                        email_address=customer.email_address,
                                        phone_number=customer.email_address,
                                        address=customer.address,
-                                       comments=customer.comments))
+                                       comments=customer.comments,
+                                       referred_id=customer.referred_id
+                                       ))
     db.commit()
     return {
         'status_code': status.HTTP_201_CREATED,
@@ -47,7 +49,8 @@ async def edit_customer(db: Annotated[Session, Depends(get_db)], customer_id: in
         email_address=update_customer.email_address,
         phone_number=update_customer.email_address,
         address=update_customer.address,
-        comments=update_customer.comments
+        comments=update_customer.comments,
+        referred_id=update_customer.referred_id
     ))
     db.commit()
     return {

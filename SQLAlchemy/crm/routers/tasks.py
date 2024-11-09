@@ -17,9 +17,11 @@ async def get_all_tasks(db: Annotated[Session, Depends(get_db)]):
 
 @router.post("/create_task")
 async def create_task(db: Annotated[Session, Depends(get_db)], create_task: CreateTask):
-    db.execute(insert(Task).values(name=create_task.name,
-                                   description=create_task.description,
-                                   creation_date=create_task.creation_date))
+    db.execute(insert(Task).values({"name": create_task.name,
+                                    "description": create_task.description,
+                                    "user_id": create_task.user,
+                                    "category_id": create_task.category,
+                                    "customer_id": create_task.customer}))
     db.commit()
     return {
         'status_code': status.HTTP_201_CREATED,
@@ -37,9 +39,11 @@ async def update_task(db: Annotated[Session, Depends(get_db)], task_id: int, upd
         )
 
     db.execute(update(Task).where(Task.id == task_id).values(
-        name=update_task.name,
-        description=update_task.description,
-        creation_date=update_task.creation_date))
+        ame=create_task.name,
+        description=create_task.description,
+        user_id=create_task.user,
+        category_id=create_task.category,
+        customer_id=create_task.customer))
     db.commit()
     return {
         'status_code': status.HTTP_200_OK,

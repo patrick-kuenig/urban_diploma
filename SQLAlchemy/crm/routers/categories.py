@@ -12,7 +12,7 @@ router = APIRouter(prefix='/categories', tags=['category'])
 
 @router.get("/all_categories")
 async def get_all_categories(db: Annotated[Session, Depends(get_db)]):
-    categories = db.scalars(select(Category).where(Category.is_active is True)).all()
+    categories = db.scalars(select(Category).where(Category.is_active == True)).all()
     return categories
 
 

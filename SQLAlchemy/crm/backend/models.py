@@ -1,3 +1,4 @@
+from datetime import datetime
 from sqlalchemy import Column
 from sqlalchemy import Integer
 from sqlalchemy import String
@@ -16,8 +17,10 @@ class User(Base):
     first_name = Column(String)
     last_name = Column(String)
     is_active = Column(Boolean, default=True)
-    tasks = relationship('Task', back_populates='user')
-    referred_customers = relationship('Customer', back_populates='referring_user')
+    # referred_customers = relationship('Customer', back_populates='user')
+
+    def __str__(self):
+        return self.username
 
 
 class Category(Base):
@@ -27,7 +30,9 @@ class Category(Base):
     description = Column(String)
     is_active = Column(Boolean, default=True)
     slug = Column(String, unique=True, index=True)
-    tasks = relationship('Task', back_populates='category')
+
+    def __str__(self):
+        return self.name
 
 
 class Customer(Base):
@@ -40,9 +45,10 @@ class Customer(Base):
     phone_number = Column(String)
     address = Column(String)
     comments = Column(String)
-    referred_id = ForeignKey('User.id')
-    referring_user = relationship('User', back_populates='referred_customers')
-    tasks = relationship('Task', back_populates='customer')
+    referred_id = Column(ForeignKey('User.id', onupdate='CASCADE', ondelete='SET NULL'), nullable=True)
+    referring_user = relationship('User')
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
 
 
 class Task(Base):
@@ -50,10 +56,10 @@ class Task(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     description = Column(String)
-    creation_date = DateTime(timezone=True)
-    user_id = ForeignKey('User.id')
-    category_id = ForeignKey('Category.id')
-    customer_id = ForeignKey('Customer.id')
-    category = relationship('Category', back_populates='tasks')
-    user = relationship('User', back_populates='tasks')
-    customer = relationship('Customer', back_populates='tasks')
+    creation_date = Column(DateTime, default=datetime.utcnow)
+    user_id = Column(ForeignKey('User.id', onupdate='CASCADE', ondelete='SET NULL'), nullable=True)
+    category_id = Column(ForeignKey('Category.id', onupdate='CASCADE', ondelete='CASCADE'))
+    customer_id = Column(ForeignKey('Customer.id', onupdate='CASCADE', ondelete='CASCADE'))
+
+    def __str__(self):
+        return self.name

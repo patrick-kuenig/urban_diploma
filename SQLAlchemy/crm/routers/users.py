@@ -35,12 +35,12 @@ async def update_user(db: Annotated[Session, Depends(get_db)], user_id: int, upd
             detail='There is no category found'
         )
 
-    db.execute(update(user).where(User.id == user_id).values(
-        username=create_user.username,
-        password=create_user.password,
-        first_name=create_user.first_name,
-        last_name=create_user.last_name,
-        is_active=create_user.is_active
+    db.execute(update(User).where(User.id == user_id).values(
+        username=update_user.username,
+        password=update_user.password,
+        first_name=update_user.first_name,
+        last_name=update_user.last_name,
+        is_active=update_user.is_active
     ))
     db.commit()
     return {

@@ -1,3 +1,5 @@
+import datetime
+
 from pydantic import BaseModel
 
 
@@ -22,9 +24,12 @@ class CreateCustomer(BaseModel):
     phone_number: str
     address: str
     comments: str
+    referred_id: int
 
 
 class CreateTask(BaseModel):
     name: str
     description: str
-    creation_date: str
+    category: int
+    customer: int
+    user: int
