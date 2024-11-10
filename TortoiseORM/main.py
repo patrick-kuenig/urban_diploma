@@ -16,56 +16,72 @@
 #     generate_schemas=True,
 #     add_exception_handlers=True,
 # )
-
-import os
-from contextlib import asynccontextmanager
-from typing import AsyncGenerator
-
+#
+# import os
+# from contextlib import asynccontextmanager
+# from typing import AsyncGenerator
+#
+# from fastapi import FastAPI
+# from routers import categories, customers, tasks, users
+#
+# from TortoiseORM.backend.config import register_orm
+# from tortoise import Tortoise, generate_config
+# from tortoise.contrib.fastapi import RegisterTortoise
+#
+#
+# @asynccontextmanager
+# async def lifespan_test(app: FastAPI) -> AsyncGenerator[None, None]:
+#     config = generate_config(
+#         os.getenv("TORTOISE_DB", "sqlite://:memory:"),
+#         app_modules={"models": ["models"]},
+#         testing=True,
+#         connection_label="models",
+#     )
+#     async with RegisterTortoise(
+#         app=app,
+#         config=config,
+#         generate_schemas=True,
+#         add_exception_handlers=True,
+#         _create_db=True,
+#     ):
+#         # db connected
+#         yield
+#         # app teardown
+#     # db connections closed
+#     await Tortoise._drop_databases()
+#
+#
+# @asynccontextmanager
+# async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
+#     if getattr(app.state, "testing", None):
+#         async with lifespan_test(app) as _:
+#             yield
+#     else:
+#         # app startup
+#         async with register_orm(app):
+#             # db connected
+#             yield
+#             # app teardown
+#         # db connections closed
+#
+#
+# app = FastAPI(title="CRM_simple", lifespan=lifespan)
 from fastapi import FastAPI
+import db
+from tortoise.contrib.fastapi import register_tortoise
 from routers import categories, customers, tasks, users
 
-from config import register_orm
-from tortoise import Tortoise, generate_config
-from tortoise.contrib.fastapi import RegisterTortoise
+app = FastAPI()
 
+# initialise database connection
+register_tortoise(
+    app,
+    db_url='crm.db',
+    modules=db.modules,
+    generate_schemas=True,
+    add_exception_handlers=True,
+)
 
-@asynccontextmanager
-async def lifespan_test(app: FastAPI) -> AsyncGenerator[None, None]:
-    config = generate_config(
-        os.getenv("TORTOISE_DB", "sqlite://:memory:"),
-        app_modules={"models": ["models"]},
-        testing=True,
-        connection_label="models",
-    )
-    async with RegisterTortoise(
-        app=app,
-        config=config,
-        generate_schemas=True,
-        add_exception_handlers=True,
-        _create_db=True,
-    ):
-        # db connected
-        yield
-        # app teardown
-    # db connections closed
-    await Tortoise._drop_databases()
-
-
-@asynccontextmanager
-async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
-    if getattr(app.state, "testing", None):
-        async with lifespan_test(app) as _:
-            yield
-    else:
-        # app startup
-        async with register_orm(app):
-            # db connected
-            yield
-            # app teardown
-        # db connections closed
-
-
-app = FastAPI(title="CRM_simple", lifespan=lifespan)
 
 
 @app.get('/')

@@ -1,7 +1,6 @@
 from pydantic import BaseModel
-from typing import TYPE_CHECKING
 from models import User, Customer, Task, Category
-from tortoise.contrib.pydantic import PydanticModel, pydantic_model_creator
+from tortoise.contrib.pydantic import pydantic_model_creator
 
 # if TYPE_CHECKING:
 #     class UserIn_Pydantic(User, PydanticModel):

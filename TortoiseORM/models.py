@@ -1,8 +1,6 @@
 from tortoise.models import Model
 from tortoise import fields
 
-# __models__ = ['User', 'Customer', 'Task', 'Category']
-
 
 class User(Model):
     id = fields.IntField(primary_key=True)
@@ -17,6 +15,7 @@ class User(Model):
 
 
 class Customer(Model):
+    id = fields.IntField(primary_key=True)
     first_name = fields.CharField(max_length=30)
     last_name = fields.CharField(max_length=30)
     company_name = fields.CharField(max_length=30)
@@ -24,7 +23,19 @@ class Customer(Model):
     phone_number = fields.CharField(max_length=30)
     address = fields.CharField(max_length=50)
     comments = fields.TextField()
-    # referred_by = fields.ForeignKeyField('models.User', related_name='customers')
+    referred_by = fields.ForeignKeyField('User')
+
+    def __str__(self):
+        return f'{self.first_name} {self.last_name}'
+
+
+class Category(Model):
+    id = fields.IntField(primary_key=True)
+    name = fields.CharField(max_length=30)
+    description = fields.TextField()
+
+    def __str__(self):
+        return self.name
 
 
 class Task(Model):
@@ -32,9 +43,9 @@ class Task(Model):
     name = fields.CharField(max_length=50)
     description = fields.TextField()
     creation_date = fields.DatetimeField(auto_now_add=True)
-    # user = fields.ForeignKeyField('models.User', related_name='tasks')
+    user = fields.ForeignKeyField('User')
+    category = fields.ForeignKeyField('Category')
+    customer = fields.ForeignKeyField('Customer')
 
-
-class Category(Model):
-    id = fields.IntField(primary_key=True)
-    name = fields.CharField(max_length=30)
+    def __str__(self):
+        return self.name
