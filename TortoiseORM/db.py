@@ -4,7 +4,7 @@ from tortoise import run_async
 
 async def init():
     await Tortoise.init(
-        db_url='sqlite://db.sqlite3',
+        db_url='sqlite://crm.db',
         modules={'models': ['models']}
     )
 
