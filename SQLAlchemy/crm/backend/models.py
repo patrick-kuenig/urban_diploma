@@ -5,7 +5,6 @@ from sqlalchemy import String
 from sqlalchemy import DateTime
 from sqlalchemy import Boolean
 from sqlalchemy import ForeignKey
-from sqlalchemy.orm import relationship
 from .db import Base
 
 
@@ -17,7 +16,6 @@ class User(Base):
     first_name = Column(String)
     last_name = Column(String)
     is_active = Column(Boolean, default=True)
-    # referred_customers = relationship('Customer', back_populates='user')
 
     def __str__(self):
         return self.username
@@ -46,7 +44,8 @@ class Customer(Base):
     address = Column(String)
     comments = Column(String)
     referred_id = Column(ForeignKey('User.id', onupdate='CASCADE', ondelete='SET NULL'), nullable=True)
-    referring_user = relationship('User')
+
+
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
