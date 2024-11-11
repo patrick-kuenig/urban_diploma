@@ -1,22 +1,3 @@
-# import os
-# from contextlib import asynccontextmanager
-# from typing import AsyncGenerator
-#
-# from fastapi import FastAPI
-# from routers import categories, customers, tasks, users
-#
-# from tortoise.contrib.fastapi import register_tortoise
-#
-# app = FastAPI(title='my_crm')
-#
-# register_tortoise(
-#     app,
-#     db_url='sqlite://db.sqlite3',
-#     modules={'models': ['models']},
-#     generate_schemas=True,
-#     add_exception_handlers=True,
-# )
-
 import os
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
@@ -65,7 +46,7 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
         # db connections closed
 
 
-app = FastAPI(title="CRM_simple", lifespan=lifespan)
+app = FastAPI(title="CRM_simple")
 
 
 @app.get('/')
