@@ -12,8 +12,8 @@ CustomerIn_Pydantic = pydantic_model_creator(Customer, name='CustomerIn', exclud
 Task_Pydantic = pydantic_model_creator(Task, name='Task')
 TaskIn_Pydantic = pydantic_model_creator(Task, name='TaskIn', exclude_readonly=True)
 
-Category_Pydantic = pydantic_model_creator(Category, name='Task')
-CategoryIn_Pydantic = pydantic_model_creator(Category, name='TaskIn', exclude_readonly=True)
+Category_Pydantic = pydantic_model_creator(Category, name='Category')
+CategoryIn_Pydantic = pydantic_model_creator(Category, name='CategoryIn', exclude_readonly=True)
 
 
 class Status(BaseModel):
